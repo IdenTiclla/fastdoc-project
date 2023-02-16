@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+
+    {%block head %}
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YouApiKeyHere"></script>
+    <script src="/dist/location-picker.min.js"></script> -->
+
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.10.2.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://maps.google.com/maps/api/js?sensor=false&libraries=places"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://rawgit.com/Logicify/jquery-locationpicker-plugin/master/dist/locationpicker.jquery.js"
+    ></script>
+    <script src="/static/js/script.js"></script>
+    {% endblock %}
+  </head>
+  <body>
+    {% block messages %} {% with messages = get_flashed_messages() %} {% if
+    messages %} {% for message in messages %}
+
+    <div class="alert alert-dark alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+
+    {% endfor %} {% endif %} {% endwith %} {% endblock %} 
+    
+    {% block navbar %} 
+        {% include 'navbar.html' %} 
+    {% endblock %} 
+    
+    {% block content %} {% endblock %}
+    
+    {% block footer %}
+
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Contactanos</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Acerca de nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Call Center: +548718191</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">FAQs</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link px-2 text-muted">Cookies</a>
+          </li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2023 FastDoc, Inc</p>
+      </footer>
+    </div>
+
+    {% endblock %}
+  </body>
+</html>

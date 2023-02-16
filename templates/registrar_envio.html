@@ -1,0 +1,100 @@
+{% extends 'layout.html' %} {% block title %} Registrar Envio {% endblock %} {%
+block content %}
+<h1>Registrar Envio</h1>
+
+<div class="container">
+  <form method="post" action="/registrar_envio">
+    <h3>Datos del que envia los documentos</h3>
+
+    <select name="emisorId" class="form-select" aria-label="Default select example">
+      {% for cliente in clientes_emisores %}
+      <option value="{{cliente[0]}}">{{cliente[1]}} {{cliente[2]}}</option>
+      {% endfor %}
+    </select>
+
+    
+
+    <div class="form-group">
+      <label for="direccionDetalladaEmisor"
+        >Direccion Detallada de recojo de documento</label
+      >
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="direccionDetalladaEmisor"
+        name="direccionRecojo"
+        aria-describedby="direccionDetalladaEmisor"
+        placeholder="Ingrese la direccion detallada"
+      />
+    </div>
+
+
+    Lat emisor
+    <input name="latitudRecojo" type="text" id="latEmisor" style="width: 200px" /> Lng emisor:
+    <input name="longitudRecojo" type="text" id="lngEmisor" style="width: 200px" />
+    <div id="us2" style="width: 500px; height: 400px"></div>
+
+    <h3>Datos del que recibe los documentos</h3>
+
+    <select name="receptorId" class="form-select" aria-label="Default select example">
+      {% for cliente in clientes_receptores %}
+      <option value="{{cliente[0]}}">{{cliente[1]}} {{cliente[2]}}</option>
+      {% endfor %}
+    </select>
+
+    
+
+    <div class="form-group">
+      <label for="direccionDetalladaReceptor"
+        >Direccion Detallada de entrega de documento</label
+      >
+      <input
+        required
+        type="text"
+        class="form-control"
+        id="direccionDetalladaReceptor"
+        name="direccionEntrega"
+        aria-describedby="direccionDetalladaReceptor"
+        placeholder="Ingrese la direccion detallada"
+      />
+    </div>
+
+    Lat
+    <input name="latitudEntrega" type="text" id="latEntrega" style="width: 200px" />
+    Long:
+    <input name="longitudEntrega" type="text" id="lngEntrega" style="width: 200px" />
+
+    <div id="us3" style="width: 500px; height: 400px"></div>
+
+
+    <h3>Seleccione Al motociclista</h3>
+    <select name="motociclistaId" class="form-select" aria-label="Default select example">
+      {% for motociclista in motociclistas %}
+      <option value="{{motociclista[0]}}">{{motociclista[1]}}</option>
+      {% endfor %}
+    </select>
+
+
+
+    <h3>Seleccione tipo de documento</h3>
+    <select name="documentoId" class="form-select" aria-label="Default select example">
+      {% for documento in documentos %}
+      <option value="{{documento[0]}}">{{documento[1]}}</option>
+      {% endfor %}
+    </select>
+
+
+    <h3>Seleccione tipo de pago</h3>
+    <select name="pagoId" class="form-select" aria-label="Default select example">
+      {% for pago in pagos %}
+      <option value="{{pago[0]}}">{{pago[1]}}</option>
+      {% endfor %}
+    </select>
+
+    <button type="submit" class="btn btn-primary">
+      Registrar Motociclista
+    </button>
+  </form>
+</div>
+{% endblock %}

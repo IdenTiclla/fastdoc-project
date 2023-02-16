@@ -1,0 +1,118 @@
+{% extends 'layout.html' %} {% block title %} Registrar Motociclista {% endblock
+%} {% block content %}
+
+<h1>Gestion de Motociclistas</h1>
+<div class="row">
+  <div class="container col-md-4">
+    <h2>Registro de Motociclistas</h2>
+    <form method="post" action="/registrar_motociclista">
+      <div class="form-group">
+        <label for="nombre">Nombre del motociclista</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nombre"
+          name="nombre"
+          aria-describedby="nombre"
+          placeholder="Ingresa el nombre"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="apellidos">Apellidos del motociclista</label>
+        <input
+          type="text"
+          class="form-control"
+          id="apellidos"
+          name="apellidos"
+          aria-describedby="apellidos"
+          placeholder="Ingresa los apellidos"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="nroCarnet">Numero de carnet de identidad</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nroCarnet"
+          name="nroCarnet"
+          aria-describedby="nroCarnet"
+          placeholder="Ingresa el numero de carnet de identidad"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="nroTelefono">Numero de telefono</label>
+        <input
+          type="text"
+          class="form-control"
+          id="nroTelefono"
+          name="nroTelefono"
+          aria-describedby="nroTelefono"
+          placeholder="Ingresa el numero de telefono"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="direccion">Direccion del motociclista</label>
+        <input
+          type="text"
+          class="form-control"
+          id="direccion"
+          name="direccion"
+          aria-describedby="direccion"
+          placeholder="Ingresa la direccion"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="placa">Placa de la moto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="placa"
+          name="placa"
+          aria-describedby="placa"
+          placeholder="Ingresa la placa"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Registrar Motociclista
+      </button>
+    </form>
+  </div>
+
+  <div class="container col-md-5">
+    {% if motociclistas|length > 0%}
+    <h2>Motociclistas Registrados</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Carnet</th>
+          <th scope="col">Telefono</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for motociclista in motociclistas %}
+        <tr>
+            <th scope="row">{{motociclista[0]}}</th>
+            <td>{{motociclista[1]}}</td>
+            <td>{{motociclista[2]}}</td>
+            <td>{{motociclista[3]}}</td>
+            <td>{{motociclista[4]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+        <h2>No hay motociclistas Registrados!</h2>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
