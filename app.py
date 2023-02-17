@@ -184,6 +184,7 @@ def registrar_envio():
 
         mysql.connection.commit()
 
+        flash("Envio de documentos registrado exitosamente!!!")
         return redirect(url_for('registrar_envio'))
 
 
