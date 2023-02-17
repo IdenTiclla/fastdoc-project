@@ -113,4 +113,9 @@ CREATE TABLE Envios(
 + id_pago int 
 + id_documento int 
 + estado varchar(50),
-    
+
+
+-- consultas mas complejas
+
+
+select clientes.nombre, envios.estado as 'Estado de envio', motociclistas.nombre as 'Nombre de motociclista', pagos.descripcion as 'Tipo de pago', documentos.descripcion as 'Documento enviado' from clientes, envios, motociclistas, pagos, documentos where clientes.id_cliente = envios.id_cliente_emisor and motociclistas.id_motociclista = envios.id_motociclista and pagos.id_pago = envios.id_pago and documentos.id_documento = envios.id_documento;
